@@ -20,22 +20,42 @@ function App() {
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         setAccount(address);
-        let contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+        const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
         const contract = new ethers.Contract(
           contractAddress,
           Lock.abi,
           signer
-        );
-        console.log(contract);
+        );  
+
+
+        console.log(contract);    
         setContract(contract);
         setProvider(provider);
       } else {
         console.error("Metamask is not installed");
       }
     };
+
+    
     provider && loadProvider();
   }, []);
+
+  // useEffect(()=>{
+  //   const getGreetings=async()=>{
+  //     // const greeting= await contract.get()
+  //     // console.log(greeting,"is the data")
+
+  //   }
+   
+  //  getGreetings()
+
+  // },[contract])
+
+
+
+
+
   return <div className="App">
 
     <>
